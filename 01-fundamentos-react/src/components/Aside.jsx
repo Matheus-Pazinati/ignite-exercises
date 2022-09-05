@@ -1,3 +1,5 @@
+import { Avatar } from "./Avatar"
+
 import { PencilSimpleLine } from "phosphor-react"
 import styles from './Aside.module.css'
 
@@ -6,10 +8,7 @@ export function Aside() {
     <aside className={styles.sidebar}>
       <header className={styles.cover} />
       <div className={styles.profile}>
-        <img
-         className={styles.avatar}
-         src="https://github.com/Matheus-Pazinati.png"
-        />
+        <Avatar source={'https://github.com/Matheus-Pazinati.png'} />
         <strong>Matheus Pazinati</strong>
         <span>Web Developer</span>
       </div>
