@@ -1,5 +1,5 @@
 import { Header } from "./components/Header";
-import { Post } from "./Post";
+import { Post } from "./components/Post";
 import { Aside } from "./components/Aside";
 
 import './global.css';
@@ -11,16 +11,10 @@ export function App() {
       <Header />
       <div className={styles.wrapper}>
         <Aside />
-        <div>
-          <Post 
-            author="Pedro" 
-            content="Meu primeiro post" 
-          />
-          <Post 
-            author="Carol" 
-            content="Meu segundo post" 
-          />
-        </div>
+        <main>
+          <Post />
+          <Post />
+        </main>
       </div>
     </div>
   )
