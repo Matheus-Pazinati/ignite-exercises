@@ -49,3 +49,45 @@
   display: flex;
   gap: 0.4rem;
 }
+.commentForm {
+  width: 100%;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--gray-600);
+}
+.commentForm > strong {
+  line-height: 1.6;
+  color: var(--gray-100);
+}
+.commentForm textarea {
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  resize: none;
+  border-radius: 8px;
+  background-color: var(--gray-900);
+  height: 6rem;
+  padding: 1rem;
+}
+.commentForm footer {
+  visibility: hidden;
+  max-height: 0;
+}
+.commentForm:focus-within footer {
+  visibility: visible;
+  max-height: none;
+}
+.commentForm button {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  background-color: var(--green-500);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  transform: background-color 0.1s;
+}
+.commentForm button:hover {
+  background-color: var(--green-300);
+}
