@@ -7,3 +7,12 @@
   padding: 2rem 1rem;
   margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
