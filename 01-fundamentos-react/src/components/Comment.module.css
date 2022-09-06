@@ -1,0 +1,71 @@
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.commentBox {
+  flex: 1;
+}
+.commentContent {
+  background-color: var(--gray-700);
+  padding: 1rem 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.commentContent header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.commentUser {
+  display: flex;
+  flex-direction: column;
+}
+.commentUser strong {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--gray-100);
+}
+.commentUser time {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+.deleteButton {
+  background: transparent;
+  border: none;
+  color: var(--gray-400);
+  line-height: 0;
+  cursor: pointer;
+}
+.deleteButton:hover {
+  color: var(--red-500);
+}
+.commentText p {
+  font-size: 0.875rem;
+  color: var(--gray-300);
+}
+.likeButton {
+  background: transparent;
+  border: none;
+  color: var(--gray-400);
+  line-height: 0;
+  cursor: pointer;
+  margin-right: 0.625rem;
+  font-size: 0.875rem;
+
+  display: flex;
+  align-items: center;
+}
+.likeButton svg {
+  margin-right: 0.625rem;
+}
+.commentBox footer span::before {
+  content: '\2022';
+  padding: 0 0.2rem;
+}
+.likeButton:hover {
+  color: var(--green-300);
+}

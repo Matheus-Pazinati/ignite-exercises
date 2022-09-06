@@ -1,5 +1,7 @@
-import { Avatar } from './Avatar'
-import styles from './Post.module.css'
+import { Avatar } from './Avatar';
+import { Comment } from './Comment';
+
+import styles from './Post.module.css';
 
 export function Post() {
   return (
@@ -39,6 +41,11 @@ export function Post() {
           <button>Publicar</button>
         </footer>
       </form>
+      <div className={styles.commentBox}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   )
 }
