@@ -8,7 +8,10 @@ import styles from './Comment.module.css'
 export function Comment() {
   return (
     <div className={styles.comment}>
-      <Avatar source={'https://github.com/Matheus-Pazinati.png'} />
+      <Avatar
+       source={'https://github.com/Matheus-Pazinati.png'} 
+       hasBorder={false}
+      />
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
