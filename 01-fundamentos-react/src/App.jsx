@@ -24,7 +24,7 @@ const posts = [
       },
       {
         type: 'link',
-        content: '👉 jane.design/doctorcare'
+        content: '👉 math.design/doctorcare'
       },
     ]
   },
@@ -39,7 +39,7 @@ const posts = [
     content: [
       {
         type: 'paragraph',
-        content: 'Fala galeraa 👋'
+        content: 'Fala pessoal 👋'
       },
       {
         type: 'paragraph',
@@ -47,7 +47,7 @@ const posts = [
       },
       {
         type: 'link',
-        content: '👉 jane.design/doctorcare'
+        content: '👉 mayk.design/doctorcare'
       },
     ]
   }
@@ -65,6 +65,7 @@ export function App() {
               <Post
                 author={post.author}
                 publishedAt={post.publishedAt}
+                content={post.content}
               />
             )
           })}
