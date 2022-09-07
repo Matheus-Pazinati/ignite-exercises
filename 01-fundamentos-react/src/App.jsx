@@ -61,7 +61,11 @@ export function App() {
         <Aside />
         <main>
           {posts.map(post => {
-            return <Post />
+            return (
+              <Post
+                author={post.author}
+              />
+            )
           })}
         </main>
       </div>
