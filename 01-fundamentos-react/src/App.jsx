@@ -12,7 +12,7 @@ const posts = [
       name: 'Matheus Pazinati',
       role: 'Web Developer'
     },
-    publishedAt: new Date('2022-09-07 01:00'),
+    publishedAt: new Date('2022-09-07 01:00:00'),
     content: [
       {
         type: 'paragraph',
@@ -35,7 +35,7 @@ const posts = [
       name: 'Mayk Brito',
       role: 'Web Developer'
     },
-    publishedAt: new Date('2022-09-07 03:00'),
+    publishedAt: new Date('2022-09-07 03:00:00'),
     content: [
       {
         type: 'paragraph',
@@ -64,6 +64,7 @@ export function App() {
             return (
               <Post
                 author={post.author}
+                publishedAt={post.publishedAt}
               />
             )
           })}

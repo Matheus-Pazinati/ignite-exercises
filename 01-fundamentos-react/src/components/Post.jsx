@@ -1,9 +1,22 @@
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/esm/locale/pt-BR/index.js';
+
 import styles from './Post.module.css';
 
-export function Post({ author }) {
+
+export function Post({ author, publishedAt }) {
+  const dateFormatted = format(publishedAt, "d 'de' LLLL 'ás' HH:mm'h'", {
+    locale: ptBR
+  })
+  const timeBetweenPostAndNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  })
+  const dateAndTime = format(publishedAt, "dd'/'LL'/'uuuu HH:mm")
+
   return (
     <article className={styles.post}>
       <header>
@@ -16,9 +29,9 @@ export function Post({ author }) {
         </div>
         <div className={styles.time}>
             <time 
-              title='5 de Setembro de 2022 ás 03:58 da manhã' 
-              dateTime='05/09/2022 03:58'>
-              Publicado há 1h
+              title={dateFormatted} 
+              dateTime={dateAndTime}>
+              {timeBetweenPostAndNow}
             </time>
         </div>
       </header>
