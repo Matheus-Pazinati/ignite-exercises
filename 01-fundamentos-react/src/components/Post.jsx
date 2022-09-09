@@ -9,7 +9,7 @@ import ptBR from 'date-fns/esm/locale/pt-BR/index.js';
 import styles from './Post.module.css';
 
 
-export function Post({ author, publishedAt, content }) {
+export function Post ({ author, publishedAt, content }) {
   const dateFormatted = format(publishedAt, "d 'de' LLLL 'ás' HH:mm'h'", {
     locale: ptBR
   })
@@ -32,6 +32,13 @@ export function Post({ author, publishedAt, content }) {
     setComments([...comments, newCommentText])
 
     setNewCommentText('')
+  }
+
+  function deleteComment(commentToDelete) {
+    const commentsListWithoutDeletedOne = comments.filter(comment => {
+      return comment !== commentToDelete
+    })
+    setComments(commentsListWithoutDeletedOne)
   }
 
   return (
@@ -79,7 +86,13 @@ export function Post({ author, publishedAt, content }) {
       </form>
       <div className={styles.commentBox}>
         {comments.map(comment => {
-          return <Comment key={comment} content={comment} />
+          return (
+          <Comment 
+            key={comment} 
+            content={comment} 
+            onDeleteComment={deleteComment}
+          />
+        )
         })}
       </div>
     </article>
