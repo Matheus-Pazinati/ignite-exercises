@@ -3,12 +3,19 @@ import { Avatar } from './Avatar'
 import { Trash, ThumbsUp } from "phosphor-react"
 
 import styles from './Comment.module.css'
+import { useState } from 'react'
 
 
 export function Comment ({ content, onDeleteComment }) {
   function handleDeleteComment() {
     onDeleteComment(content)
   }
+  const [applaudCount, setApplaudCount] = useState(0)
+
+  function handleApplaudButtonAddCount() {
+    setApplaudCount(applaudCount + 1)
+  }
+
   return (
     <div className={styles.comment}>
       <Avatar
@@ -39,9 +46,13 @@ export function Comment ({ content, onDeleteComment }) {
           </div>
         </div>      
         <footer>
-          <button title='Botão para aplaudir o comentário' className={styles.likeButton}>
+          <button 
+            title='Botão para aplaudir o comentário' 
+            className={styles.likeButton}
+            onClick={handleApplaudButtonAddCount}
+          >
             <ThumbsUp size={20} />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{applaudCount}</span>
           </button>
         </footer>
       </div>
