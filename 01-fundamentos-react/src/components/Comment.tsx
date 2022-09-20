@@ -1,25 +1,33 @@
-import { Avatar } from './Avatar'
+import { useState } from 'react';
 
-import { Trash, ThumbsUp } from "phosphor-react"
+import { Avatar } from './Avatar';
 
-import styles from './Comment.module.css'
-import { useState } from 'react'
+import { Trash, ThumbsUp } from "phosphor-react";
 
+import styles from './Comment.module.css';
 
-export function Comment ({ content, onDeleteComment }) {
+interface CommentProps {
+  content: string;
+  onDeleteComment: (content: string) => void;
+}
+
+export function Comment ({ content, onDeleteComment }: CommentProps) {
+
   function handleDeleteComment() {
     onDeleteComment(content)
   }
   const [applaudCount, setApplaudCount] = useState(0)
 
   function handleApplaudButtonAddCount() {
-    setApplaudCount(applaudCount + 1)
+    setApplaudCount((state) => {
+      return state + 1
+    })
   }
 
   return (
     <div className={styles.comment}>
       <Avatar
-       source={'https://github.com/Matheus-Pazinati.png'} 
+       src={'https://github.com/Matheus-Pazinati.png'} 
        hasBorder={false}
       />
       <div className={styles.commentBox}>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
@@ -8,8 +8,24 @@ import ptBR from 'date-fns/esm/locale/pt-BR/index.js';
 
 import styles from './Post.module.css';
 
+interface Author {
+  name: string;
+  avatarUrl: string;
+  role: string;
+}
 
-export function Post ({ author, publishedAt, content }) {
+interface Content {
+  type: 'paragraph' | 'link';
+  content: string;
+}
+
+interface PostProps {
+  author: Author;
+  publishedAt: Date;
+  content: Content[];
+}
+
+export function Post ({ author, publishedAt, content }: PostProps) {
   const dateFormatted = format(publishedAt, "d 'de' LLLL 'ás' HH:mm'h'", {
     locale: ptBR
   })
@@ -19,26 +35,26 @@ export function Post ({ author, publishedAt, content }) {
   })
   const dateAndTime = format(publishedAt, "dd'/'LL'/'uuuu HH:mm")
 
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState<string[]>([]);
 
   const [newCommentText, setNewCommentText] = useState('');
 
-  function handleNewComment() {
+  function handleNewComment(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('')
     setNewCommentText(event.target.value)
   }
 
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event: FormEvent) {
     event.preventDefault()
     setComments([...comments, newCommentText])
 
     setNewCommentText('')
   }
-  function handleInvalidMessageSent() {
+  function handleInvalidMessageSent(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('Este campo é obrigatório');
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentsListWithoutDeletedOne = comments.filter(comment => {
       return comment !== commentToDelete
     })
@@ -51,7 +67,7 @@ export function Post ({ author, publishedAt, content }) {
     <article className={styles.post}>
       <header>
         <div className={styles.user}>
-          <Avatar source={author.avatarUrl} />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.info}>
             <strong>{author.name}</strong>
             <span>{author.role}</span>
