@@ -22,8 +22,8 @@
   <ol>
     <li>Faça fork e clone o repositório ou baixe-o em sua máquina</li>
     <li>Abra o terminal na pasta do projeto e execute o comando <strong>cd 'nome do projeto'</strong>, para entrar na pasta do projeto escolhido</li>
-    <li>Execute no terminal o comando  <strong>npm install</strong> para baixar as dependência do projeto</li>
-    <li>Para rodar o projeto, execute o comando <strong>npm run dev</strong>, que abrirá uma porta localmente para hospedar a aplicação</li>
+    <li>Execute no terminal o comando  <strong>npm install</strong> para baixar as dependência do projeto (você precisar ter o Node instalado na sua máquina)</li>
+    <li>Para rodar o projeto, execute o comando <strong>npm run dev</strong>, que abrirá uma porta localmente no seu computador para hospedar a aplicação</li>
     <li>Abra seu navegador, e insira o endereço http://localhost:porta</li>
   </ol>
 <br>
