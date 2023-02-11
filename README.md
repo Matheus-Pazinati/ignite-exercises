@@ -6,15 +6,15 @@
 <p>O Ignite Exercises é um repositório onde cada pasta é um mini projeto desenvolvido utilizando React. Os projetos foram criados durante o curso Ignite, oferecido pela Rocketseat.</p>
 <br>
 <h2>🎯 Objetivo</h2>
-<p>Aplicar na prática os conceitos aprendidos sobre React (Componentização, State, Hooks, Estilização...) durante o curso Ignite, melhorando a experiência de aprendizado, alternando entre assistir aulas(teoria) e desenvolver projetos(prática).</p>
+<p>Aplicar na prática os conceitos aprendidos sobre React (Componentização, State, Hooks, Estilização, Testes, Context API, etc.) durante o curso Ignite, melhorando a experiência de aprendizado, alternando entre assistir aulas(teoria) e desenvolver projetos(prática).</p>
 <br>
 <h2>🚀 Tecnologias utilizadas</h2>
   <ul>
     <li>React</li>
-    <li>JSX</li>
     <li>CSS</li>
     <li>Javascript</li>
     <li>Typescript</li>
+    <li>Jest</li>
   </ul>
 <br>
 <h2>💻 Como executar os projetos</h2>
