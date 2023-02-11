@@ -1,6 +1,8 @@
+import { List } from "./components/List";
+
 export function App() {
 
   return (
-    <h1>Teste</h1>
+    <List />
   )
 }
