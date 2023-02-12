@@ -1,19 +1,20 @@
 import { useState } from "react"
 
 export function List() {
-  const [users, setUsers] = useState<string[]>([])
+  const [users, setUsers] = useState<string[]>(["Carol", "Matheus"])
   const [newUser, setNewUser] = useState('')
 
   function handleAddNewUser() {
     setUsers( state => [...state, newUser])
-    setNewUser('')
   }
+
   return (
     <div>
-      <input type="text" value={newUser} onChange={(event) => {
-        setNewUser(event.target.value)
+      <h1>Lista de usuários</h1>
+      <input placeholder="Novo usuário" type="text" value={newUser} onChange={(event) => {
+        return setNewUser(event.target.value)
       }} />
-      <button onClick={handleAddNewUser}>Adiciona usuário</button>
+      <button onClick={handleAddNewUser}>Adicionar usuário</button>
       <ul>
         {users.map((user) => (
           <li key={user}>{user}</li>
