@@ -1,8 +1,12 @@
-import { List } from "./components/List";
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './AppRoutes'
+
 
 export function App() {
 
   return (
-    <List />
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }

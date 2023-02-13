@@ -4,13 +4,13 @@ import userEvent from '@testing-library/user-event'
 
 describe("List component test", () => {
   it("should render", () => {
-    render(<List />)
+    render(<List initialUsers={["Matheus", "Carol"]} />)
 
-    expect(screen.getByText("Lista de usuários")).toBeInTheDocument
+    expect(screen.getByText("Matheus")).toBeInTheDocument
   });
 
   it("should be able to add new item on the list", async () => {
-    const { getByText, getByPlaceholderText } = render(<List />);
+    const { getByText, getByPlaceholderText } = render(<List initialUsers={["Matheus", "Carol"]} />);
 
     const inputElement = getByPlaceholderText('Novo usuário');
     const addButton = getByText('Adicionar usuário');
