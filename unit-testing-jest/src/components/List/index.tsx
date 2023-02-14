@@ -22,7 +22,7 @@ export function List({ initialUsers }: ListProps) {
       <ul>
         {users.map((user) => (
           <li key={user}>
-            <Link to={`/${user}`}>
+            <Link data-testid="link-component" to={`/${user}`}>
               {user}
             </Link>
           </li>

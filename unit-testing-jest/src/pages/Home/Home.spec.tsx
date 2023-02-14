@@ -10,5 +10,5 @@ describe("Home page", () => {
     render(<Home />)
 
     expect(screen.getByText("Home")).toBeInTheDocument
-  })
+  });
 })
