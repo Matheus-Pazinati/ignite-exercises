@@ -61,6 +61,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       })
       setCookie(undefined, 'refreshToken:nextauth', refreshToken)
 
+      api.defaults.headers['Authorization'] = `Bearer ${token}`
+
       Router.push('/dashboard')
     } catch (error) {
       console.log(error)
