@@ -2,6 +2,7 @@ import { signOut } from '@/context/AuthContext'
 import axios, { AxiosError } from 'axios'
 import { parseCookies, setCookie } from 'nookies'
 import { GetServerSidePropsContext } from 'next'
+import { AuthTokenError } from './errors/AuthTokenError'
 
 
 let isRefreshed = false
@@ -74,6 +75,8 @@ export function setupApiClient(ctx: GetServerSidePropsContext | undefined = unde
       else {
         if (typeof window !== "undefined") {
           signOut()
+        } else {
+          return Promise.reject(new AuthTokenError())
         }
       }
     }

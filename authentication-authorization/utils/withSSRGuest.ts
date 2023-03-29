@@ -14,6 +14,6 @@ export function withSSRGuest(fn: GetServerSideProps) {
       }
     }
 
-    return fn(context)
+    return await fn(context)
   }
 }
