@@ -1,6 +1,5 @@
-import { UserCan } from "@/components/userCan"
+import { UserCan } from "@/components/UserCan"
 import { AuthContext } from "@/context/AuthContext"
-import { useUserCan } from "@/hooks/useUserCan"
 import { setupApiClient } from "@/lib/api"
 import { api } from "@/lib/apiClient"
 import { useContext, useEffect } from "react"
