@@ -27,9 +27,13 @@ interface AuthContextProviderProps {
   children: ReactNode
 }
 
+let authChannel: BroadcastChannel
+
 export function signOut() {
   destroyCookie(undefined, 'token:nextauth')
   destroyCookie(undefined, 'refreshToken:nextauth'),
+
+  authChannel.postMessage('signOut')
 
   Router.push("/")
 }
@@ -39,6 +43,20 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const isAuthenticated = !!user;
 
   useEffect(() => {
+    authChannel = new BroadcastChannel('auth')
+
+    authChannel.onmessage = (message) => {
+      switch(message.data) {
+        case 'signOut':
+          Router.push('/')
+          break;
+        default: 
+          break;
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     const {'token:nextauth': token} = parseCookies()
     if (token) {
       api.get('/me')
@@ -46,7 +64,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         const { email, permissions, roles } = response.data
         setUser({email, permissions, roles})
       })
-      .catch( () => {
+      .catch(() => {
+        console.log('teste')
         signOut()
       })
     }
