@@ -18,6 +18,7 @@ interface AuthContextProps {
   signIn: (credentials: SignInCredentials) => Promise<void>
   isAuthenticated: boolean
   user?: UserProps
+  signOut: () => void
 }
 
 export const AuthContext = createContext({} as AuthContextProps)
@@ -79,7 +80,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     }
   }
   return (
-    <AuthContext.Provider value={{signIn, isAuthenticated, user }}>
+    <AuthContext.Provider value={{signIn, isAuthenticated, user, signOut }}>
       {children}
     </AuthContext.Provider>
   )
