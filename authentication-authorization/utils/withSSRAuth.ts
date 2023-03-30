@@ -20,7 +20,7 @@ export function withSSRAuth(fn: GetServerSideProps) {
     } catch (err) {
       if (err instanceof AuthTokenError) {
         destroyCookie(context, 'token:nextauth'),
-          destroyCookie(context, 'refreshToken:nextauth')
+        destroyCookie(context, 'refreshToken:nextauth')
 
         return {
           redirect: {
